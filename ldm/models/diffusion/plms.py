@@ -1330,7 +1330,7 @@ class PLMSSampler(object):
                 )
 
         print("Optimizing start")
-        for epoch in tqdm(range(25)):
+        for epoch in tqdm(range(10)):
             img = img_clone.clone()
             total_steps = timesteps if ddim_use_original_steps else timesteps.shape[0]
             iterator = time_range
@@ -1393,7 +1393,7 @@ class PLMSSampler(object):
             optimizer.step()
             # torch.save(weighting_parameter,  lambda_save_path+"/weightingParam%d.pt"%(epoch))
             with torch.no_grad():
-                if epoch == 24:
+                if epoch == 9:
                     # save image
                     x_sample = 255.0 * rearrange(
                         img_temp_ddim[0].detach().cpu().numpy(), "c h w -> h w c"
