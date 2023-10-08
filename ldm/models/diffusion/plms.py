@@ -1028,7 +1028,7 @@ class PLMSSampler(object):
                     old_eps=old_eps,
                     t_next=ts_next,
                     input_image=input_image,
-                    optimizing_weight=torch.ones(101)[i],
+                    optimizing_weight=1.0,
                     noise_save_path=noise_saved_path,
                 )
                 img, pred_x0, e_t = outs
@@ -1305,7 +1305,7 @@ class PLMSSampler(object):
                     old_eps=old_eps,
                     t_next=ts_next,
                     input_image=input_image,
-                    optimizing_weight=torch.ones(101)[i],
+                    optimizing_weight=1.0,
                     noise_save_path=noise_save_path,
                 )
                 img, pred_x0, e_t = outs
